@@ -1,0 +1,15 @@
+services:
+  # Webサーバー + PHP の箱
+  web:
+    image: php:8.2-apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/var/www/html
+
+  # データベース（MySQL）の箱
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test_db
